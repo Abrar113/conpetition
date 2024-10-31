@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Brawl</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        header {
+            background-color: #0056b3;
+            padding: 40px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 5px solid #ffcc00; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 30px 30px; 
+        }
+
+        .title {
+            font-size: 3.5rem; 
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase; 
+            letter-spacing: 5px;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); 
+        }
+
+        .container {
+            margin-top: 60px;
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007BFF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #007BFF;
+            padding: 15px;
+            font-size: 1rem;
+            background-color: #f7f9fc;
+        }
+
+        .form-control:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 10px rgba(0, 91, 189, 0.5);
+        }
+
+        label {
+            font-weight: 600;
+            color: #007BFF;
+        }
+
+        .btn-primary {
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+        }
+
+        #membersGroup input {
+            border: 2px solid #6c757d;
+        }
+
+        #membersGroup input:focus {
+            border-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">Brain Brawl</h1>
+    </header>
+
+    <div class="container">
+        <h2> Sign in</h2>
+        <form method="post" action="signup.php">
+            <div class="form-group">
+                <label for="type">Type :</label>
+                <select class="form-control" id="type" name="type" required>
+                <option value="individual">Choose : </option>
+
+                    <option value="individual">individual</option>
+                    <option value="team">Team</option>
+                </select>
+            </div>
+            <div class="form-group" id="nameGroup" style="display:none;">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group" id="passwordGroup" style="display:none;">
+                <label for="password"> Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group" id="membersGroup" style="display:none;">
+                <label> Team Members:</label>
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                    <input type="text" class="form-control mb-2" id="member<?php echo $i; ?>" name="member<?php echo $i; ?>" placeholder="اسم العضو <?php echo $i; ?>" style="display:none;">
+                <?php endfor; ?>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('type').addEventListener('change', function() {
+            const membersGroup = document.getElementById('membersGroup');
+            const nameGroup = document.getElementById('nameGroup');
+            const passwordGroup = document.getElementById('passwordGroup');
+            const memberInputs = membersGroup.querySelectorAll('input[type="text"]');
+
+            if (this.value === 'team') {
+                nameGroup.style.display = 'block'; 
+                passwordGroup.style.display = 'none'; 
+                membersGroup.style.display = 'block'; 
+                memberInputs.forEach((input) => {
+                    input.style.display = 'block';  
+                });
+            } else if (this.value === 'individual') {
+                nameGroup.style.display = 'block';
+                passwordGroup.style.display = 'block'; 
+                membersGroup.style.display = 'none'; 
+                memberInputs.forEach((input) => {
+                    input.style.display = 'none'; 
+                });
+            } else {
+                nameGroup.style.display = 'none';
+                passwordGroup.style.display = 'none'; 
+                membersGroup.style.display = 'none'; 
+            }
+        });
+    </script>
+</body>
+</html>

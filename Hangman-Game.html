@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title> 
+    <link rel="stylesheet" href="hanguman.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hangman Game</h1>
+                 <select id="category-select">
+            <option value="movies">Movies</option>
+            <option value="sports">Sports</option>
+            <option value="fruits">Fruits</option>
+        </select>
+        <div class="button-group">
+            <button id="start-button">Start Game</button>
+            <button id="skip-button">Skip Word</button>
+            <button id="next-button" style="display:none;">Next</button>
+            <button id="result-button" style="display:none;">Show Result</button>
+        </div>
+        <div id="word-container"></div>
+        <div id="wrong-letters"></div>
+        <div id="message"></div>
+        <div id="timer" style="color: black;">Time remaining: 10:00</div>
+        <div id="result-display"></div>
+    </div>
+    <script src="Hangman-Game.js"></script>
+</body>
+</html>

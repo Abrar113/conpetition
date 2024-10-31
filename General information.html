@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>general Information Quiz</title>
+    <link rel="stylesheet" href="quizes-styles.css">
+    <style>
+  /* الخلفية والأنماط الأساسية */
+  body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* تأثير تغيير الخلفية */
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease; /* حركة دخول */
+        }
+
+        h2 {
+            text-align: center;
+            color: #022649;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            color: #1f5183;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .correct {
+            color: #011427;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        label {
+            display: block;
+            background: #e9eff6;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease; /* إضافة حركة */
+        }
+        label:hover {
+            background: #d0d8e3;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #336699;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease; /* إضافة حركة */
+        }
+        .btn:hover {
+            background-color: #85c1f8;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+        .btn:active {
+            transform: translateY(1px); /* حركة خفيفة للأسفل عند الضغط */
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #021222;
+            animation: fadeIn 0.5s ease; /* حركة ظهور النتيجة */
+        }
+
+        #timer {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #022547;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>general Information Quiz</h2>
+        <div id="timer">Time Remaining: <span id="time">5:00</span></div>
+
+        <form id="quizForm">
+            <div class="input-group question" id="q1">
+                <div class="question">
+                    <p>1. Which continent has the most countries?</p>
+                    <label><input type="radio" name="q1" value="A">A) Asia</label><br>
+                    <label><input type="radio" name="q1" value="B">B) Africa</label><br>
+                    <label><input type="radio" name="q1" value="C">C) Europe</label><br>
+                    <label><input type="radio" name="q1" value="D">A) South America</label>
+                    <p class="correct" style="display: none;">Correct answer: B) Africa</p>
+                </div>
+                
+                <div  class="input-group question" id="q2">
+                    <p>2. Who discovered the law of gravity?</p>
+                    <label><input type="radio" name="q2" value="A">A) Galileo</label><br>
+                    <label><input type="radio" name="q2" value="B">B) Isaac Newton</label><br>
+                    <label><input type="radio" name="q2" value="C">C) Albert Einstein</label><br>
+                    <label><input type="radio" name="q2" value="D">D) Nicolaus Copernicus</label>
+                    <p class="correct" style="display: none;">Correct answer: B) Isaac Newton</p>
+                </div>
+                
+                <div  class="input-group question" id="q3">
+                    <p>3. Who wrote the novel "1984"?</p>
+                    <label><input type="radio" name="q3" value="A">A) Aldous Huxley</label><br>
+                    <label><input type="radio" name="q3" value="B">B) George Orwell</label><br>
+                    <label><input type="radio" name="q3" value="C">C) F. Scott Fitzgerald</label><br>
+                    <label><input type="radio" name="q3" value="D">D) Harper Lee</label>
+                    <p class="correct" style="display: none;">Correct answer: B) George Orwell</p>
+                </div>
+                
+                <div  class="input-group question" id="q4">
+                    <p>4. What is the chemical element represented by "O"?</p>
+                    <label><input type="radio" name="q4" value="A">A) Gold</label><br>
+                    <label><input type="radio" name="q4" value="B">B) Oxygen</label><br>
+                    <label><input type="radio" name="q4" value="C">C) Aluminum</label><br>
+                    <label><input type="radio" name="q4" value="D">D) Nitrogen</label>
+                    <p class="correct" style="display: none;">Correct answer: B) Oxygen</p>
+                </div>
+                
+                <div class="input-group question" id="q5">
+                    <p>5. What is the most spoken language in the world?</p>
+                    <label><input type="radio" name="q5" value="A">A) Spanish</label><br>
+                    <label><input type="radio" name="q5" value="B">B) English</label><br>
+                    <label><input type="radio" name="q5" value="C">C) Chinese</label><br>
+                    <label><input type="radio" name="q5" value="D">D) Arabic</label>
+                    <p class="correct" style="display: none;">Correct answer: B) English</p>
+                </div>
+                
+                <div  class="input-group question" id="q6">
+                    <p>6. What is the longest river in the world?</p>
+                    <label><input type="radio" name="q6" value="A">A) Amazon</label><br>
+                    <label><input type="radio" name="q6" value="B">B) Nile</label><br>
+                    <label><input type="radio" name="q6" value="C">C) Mississippi</label><br>
+                    <label><input type="radio" name="q6" value="D">D) Yangtze</label>
+                    <p class="correct" style="display: none;">Correct answer: B) Nile</p>
+                </div>
+                
+                <div class="input-group question" id="q7">
+                    <p>7. In what year did World War II begin?</p>
+                    <label><input type="radio" name="q7" value="A">A) 1914</label><br>
+                    <label><input type="radio" name="q7" value="B">B) 1939</label><br>
+                    <label><input type="radio" name="q7" value="C">C) 1945</label><br>
+                    <label><input type="radio" name="q7" value="D">D) 1960</label>
+                    <p class="correct" style="display: none;">Correct answer: B) 1939</p>
+                </div>
+                
+                <div class="input-group question" id="q8">
+                    <p>8. What is the largest ocean in the world?</p>
+                    <label><input type="radio" name="q8" value="A">A) Atlantic Ocean</label><br>
+                    <label><input type="radio" name="q8" value="B">B) Indian Ocean</label><br>
+                    <label><input type="radio" name="q8" value="C">C) Pacific Ocean</label><br>
+                    <label><input type="radio" name="q8" value="D">D) Southern Ocean</label>
+                    <p class="correct" style="display: none;">Correct answer: C) Pacific Ocean</p>
+                </div>
+                
+                <div class="input-group question" id="q9">
+                    <p>9. What is the capital of France?</p>
+                    <label><input type="radio" name="q9" value="A">A) Madrid</label><br>
+                    <label><input type="radio" name="q9" value="B">B) Berlin</label><br>
+                    <label><input type="radio" name="q9" value="C">C) Paris</label><br>
+                    <label><input type="radio" name="q9" value="D">D) Rome</label>
+                    <p class="correct" style="display: none;">Correct answer: C) Paris</p>
+                </div>
+                
+                <div class="input-group question" id="q10">
+                    <p>10. What is the largest planet in the solar system?</p>
+                    <label><input type="radio" name="q10" value="A">A) Saturn</label><br>
+                    <label><input type="radio" name="q10" value="B">B) Earth</label><br>
+                    <label><input type="radio" name="q10" value="C">C) Jupiter</label><br>
+                    <label><input type="radio" name="q10" value="D">D) Mars</label>
+                    <p class="correct" style="display: none;">Correct answer: C) Jupiter</p>
+                </div>
+            <button type="submit" class="btn"> Submit</button>
+        </form>
+        <div id="result">
+            <p id="score"></p>
+            <button class="btn"><a href="home.html" style="color: white;">NEXT</a></button>
+        </div>
+    </div>
+
+    <script>
+        // Correct answers for the quiz
+        const correctAnswers = {
+            q1: "B",
+            q2: "B",
+            q3: "B",
+            q4: "B",
+            q5: "B",
+            q6: "B",
+            q7: "B",
+            q8: "C",
+            q9: "C",
+            q10: "C"
+        };
+
+    </script>
+    <script src="quizs.js"></script>
+</body>
+</html>

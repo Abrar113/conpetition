@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="quizes-styles.css">
+   <style>
+    /* الخلفية والأنماط الأساسية */
+    body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* تأثير تغيير الخلفية */
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease; /* حركة دخول */
+        }
+
+        h2 {
+            text-align: center;
+            color: #022649;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            color: #1f5183;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .correct {
+            color: #011427;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        label {
+            display: block;
+            background: #e9eff6;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease; /* إضافة حركة */
+        }
+        label:hover {
+            background: #d0d8e3;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #336699;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease; /* إضافة حركة */
+        }
+        .btn:hover {
+            background-color: #85c1f8;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+        .btn:active {
+            transform: translateY(1px); /* حركة خفيفة للأسفل عند الضغط */
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #021222;
+            animation: fadeIn 0.5s ease; /* حركة ظهور النتيجة */
+        }
+
+        #timer {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #022547;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mathematics Quiz</h2>
+        <div id="timer">Time Remaining: <span id="time">5:00</span></div>
+         <form id="quizForm">
+            <div class="input-group question" id="q1">
+                <div class="question">
+                    <p>1. Solve for : 3x+9=18</p>
+                    <label><input type="radio" name="q1" value="A">A) 4</label><br>
+                    <label><input type="radio" name="q1" value="B">B) 3 </label><br>
+                    <label><input type="radio" name="q1" value="C">C) 2</label><br>
+                    <label><input type="radio" name="q1" value="D">D) 1</label>
+                    <p class="correct" style="display: none;">Correct answer: B) 3</p>
+                </div>
+                
+                <div  class="input-group question" id="q2">
+                    <p>2.What is the area of a triangle with base 10 units and height 5 units?</p>
+                    <label><input type="radio" name="q2" value="A">A) 50 square units</label><br>
+                    <label><input type="radio" name="q2" value="B">B) 20 square units</label><br>
+                    <label><input type="radio" name="q2" value="C">C) 25 square units</label><br>
+                    <label><input type="radio" name="q2" value="D">D) 30 square units</label>
+                    <p class="correct" style="display: none;">Correct answer: C) 25 square units</p>
+                </div>
+                
+                <div  class="input-group question" id="q3">
+                    <p>3.  What is 15% of 200?</p>
+                    <label><input type="radio" name="q3" value="A">A) 15</label><br>
+                    <label><input type="radio" name="q3" value="B">B) 30</label><br>
+                    <label><input type="radio" name="q3" value="C">C) 20</label><br>
+                    <label><input type="radio" name="q3" value="D">D) 40</label>
+                    <p class="correct" style="display: none;">Correct answer: B) 30</p>
+                </div>
+                
+                <div  class="input-group question" id="q4">
+                    <p>4. Solve the equation:𝑥^2−5x+6=0</p>
+                    <label><input type="radio" name="q4" value="A">A) x=2 and x=3</label><br>
+                    <label><input type="radio" name="q4" value="B">B) x=-2 and x=-3</label><br>
+                    <label><input type="radio" name="q4" value="C">C) x=1 and x=6</label><br>
+                    <label><input type="radio" name="q4" value="D">D) x=0 and x=5</label>
+                    <p class="correct" style="display: none;">Correct answer: A) x=2 and x=3</p>
+                </div>
+                
+                <div class="input-group question" id="q5">
+                    <p>5. What is the circumference of a circle with radius 7cm? (Useπ=22/7)</p>
+                    <label><input type="radio" name="q5" value="A">A) 44 cm</label><br>
+                    <label><input type="radio" name="q5" value="B">B) 28 cm</label><br>
+                    <label><input type="radio" name="q5" value="C">C) 56 cm</label><br>
+                    <label><input type="radio" name="q5" value="D">D) 88 cm</label>
+                    <p class="correct" style="display: none;">Correct answer: A) 44 cm</p>
+                </div>
+                
+                <div  class="input-group question" id="q6">
+                    <p>6. The average (mean) of five numbers is 16. If four of the numbers are 14, 18, 12, and 20, what is the fifth number?</p>
+                    <label><input type="radio" name="q6" value="A">A) 16</label><br>
+                    <label><input type="radio" name="q6" value="B">B) 18</label><br>
+                    <label><input type="radio" name="q6" value="C">C) 20</label><br>
+                    <label><input type="radio" name="q6" value="D">D) 22</label>
+                    <p class="correct" style="display: none;">Correct answer: A) 16</p>
+                </div>
+                
+                <div class="input-group question" id="q7">
+                    <p>7. What is the value of (2+3i)(1−4i)?</p>
+                    <label><input type="radio" name="q7" value="A">A) −10+i</label><br>
+                    <label><input type="radio" name="q7" value="B">B) −10−11i</label><br>
+                    <label><input type="radio" name="q7" value="C">C) 10−11i</label><br>
+                    <label><input type="radio" name="q7" value="D">D) 10+11i</label>
+                    <p class="correct" style="display: none;">Correct answer: B) −10−11i</p>
+                </div>
+                
+                <div class="input-group question" id="q8">
+                    <p>8. 5x−7>3x+9</p>
+                    <label><input type="radio" name="q8" value="A">A) x>8</label><br>
+                    <label><input type="radio" name="q8" value="B">B) x<8 </label><br>
+                    <label><input type="radio" name="q8" value="C">C)x>−8</label><br>
+                    <label><input type="radio" name="q8" value="D">D) x>−4</label>
+                    <p class="correct" style="display: none;">Correct answer: D) x>−4 </p>
+                </div>
+                
+                <div class="input-group question" id="q9">
+                    <p>9. The complex number z=4+3i is raised to the power of 2. What is 𝑧^2?</p>
+                    <label><input type="radio" name="q9" value="A">A) 7+24i</label><br>
+                    <label><input type="radio" name="q9" value="B">B) 16+9i</label><br>
+                    <label><input type="radio" name="q9" value="C">C) 7−24i</label><br>
+                    <label><input type="radio" name="q9" value="D">D)25i</label>
+                    <p class="correct" style="display: none;">Correct answer: A) 7+24i</p>
+                </div>
+                
+                <div class="input-group question" id="q10">
+                    <p>10. If a=(2,3) and b=(4,−1), what is a+b?</p>
+                    <label><input type="radio" name="q10" value="A">A) (6, 2)</label><br>
+                    <label><input type="radio" name="q10" value="B">B) (2, 4)</label><br>
+                    <label><input type="radio" name="q10" value="C">C) (6, 4)</label><br>
+                    <label><input type="radio" name="q10" value="D">D) (0, 2)</label>
+                    <p class="correct" style="display: none;">Correct answer: A) (6, 2)</p>
+                </div>
+            <button type="submit" class="btn"> Submit</button>
+        </form>
+        <div id="result">
+            <p id="score"></p>
+            <button class="btn"><a href="home.html" style="color: white;">NEXT</a></button>
+        </div>
+    </div>
+
+    <script>
+        // Correct answers for the quiz
+        const correctAnswers = {
+            q1: "B",
+            q2: "C",
+            q3: "B",
+            q4: "A",
+            q5: "A",
+            q6: "A",
+            q7: "B",
+            q8: "D",
+            q9: "A",
+            q10: "A"
+        };
+   </script>
+   <script src="quizs.js"></script>
+</body>
+</html>
+
+</body>
+</html>

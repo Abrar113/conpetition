@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Quiz</title>
+    <link rel="stylesheet" href="quizes-styles.css">
+
+    <style>
+      /* الخلفية والأنماط الأساسية */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* تأثير تغيير الخلفية */
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease; /* حركة دخول */
+        }
+
+        h2 {
+            text-align: center;
+            color: #022649;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            color: #1f5183;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .correct {
+            color: #011427;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        label {
+            display: block;
+            background: #e9eff6;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease; /* إضافة حركة */
+        }
+        label:hover {
+            background: #d0d8e3;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #336699;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease; /* إضافة حركة */
+        }
+        .btn:hover {
+            background-color: #85c1f8;
+            transform: translateY(-2px); /* حركة خفيفة للأعلى عند التحويم */
+        }
+        .btn:active {
+            transform: translateY(1px); /* حركة خفيفة للأسفل عند الضغط */
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #021222;
+            animation: fadeIn 0.5s ease; /* حركة ظهور النتيجة */
+        }
+
+        #timer {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #022547;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Programming Quiz</h2>
+        <div id="timer">Time Remaining: <span id="time">5:00</span></div>
+   
+    <form id="quizForm">
+            <div class="input-group question" id="q1">
+                <div class="question">
+                    <p>1. What is the primary purpose of a variable in programming?</p>
+                    <label><input type="radio" name="q1" value="A">A) To store data</label><br>
+                    <label><input type="radio" name="q1" value="B">B) To execute functions</label><br>
+                    <label><input type="radio" name="q1" value="C">C) To display output</label><br>
+                    <label><input type="radio" name="q1" value="D">D) To define data types</label>
+                    <p class="correct" style="display: none;">Correct answer: A) To store data</p>
+                </div>
+                
+                <div  class="input-group question" id="q2">
+                    <p>2. Which of the following is a valid way to declare a variable in JavaScript?</p>
+                    <label><input type="radio" name="q2" value="A">A) var variableName;</label><br>
+                    <label><input type="radio" name="q2" value="B">B) let variableName = 10;</label><br>
+                    <label><input type="radio" name="q2" value="C">C) const variableName;</label><br>
+                    <label><input type="radio" name="q2" value="D">D) Both A and B</label>
+                    <p class="correct" style="display: none;">Correct answer: D) Both A and B</p>
+                </div>
+                
+                <div  class="input-group question" id="q3">
+                    <p>3. What does HTML stand for?</p>
+                    <label><input type="radio" name="q3" value="A">A) Hypertext Markup Language</label><br>
+                    <label><input type="radio" name="q3" value="B">B) High-level Text Markup Language</label><br>
+                    <label><input type="radio" name="q3" value="C">C) Hyperlink and Text Markup Language</label><br>
+                    <label><input type="radio" name="q3" value="D">D) Hypertext Multi Language</label>
+                    <p class="correct" style="display: none;">Correct answer: A) Hypertext Markup Language</p>
+                </div>
+                
+                <div  class="input-group question" id="q4">
+                    <p>4. In Python, which keyword is used to define a function?</p>
+                    <label><input type="radio" name="q4" value="A">A) func</label><br>
+                    <label><input type="radio" name="q4" value="B">B) define</label><br>
+                    <label><input type="radio" name="q4" value="C">C) def</label><br>
+                    <label><input type="radio" name="q4" value="D">D) function</label>
+                    <p class="correct" style="display: none;">Correct answer: C) def</p>
+                </div>
+                
+                <div class="input-group question" id="q5">
+                    <p>5. Which of the following is a looping structure in C++?</p>
+                    <label><input type="radio" name="q5" value="A">A) if-else</label><br>
+                    <label><input type="radio" name="q5" value="B">B) for</label><br>
+                    <label><input type="radio" name="q5" value="C">C) switch</label><br>
+                    <label><input type="radio" name="q5" value="D">D) try-catch</label>
+                    <p class="correct" style="display: none;">Correct answer: B) for</p>
+                </div>
+                
+                <div  class="input-group question" id="q6">
+                    <p>6. What is the output of console.log(typeof null) in JavaScript?</p>
+                    <label><input type="radio" name="q6" value="A">A) "null"</label><br>
+                    <label><input type="radio" name="q6" value="B">B) "object"</label><br>
+                    <label><input type="radio" name="q6" value="C">C) "undefined"</label><br>
+                    <label><input type="radio" name="q6" value="D">D) "string"</label>
+                    <p class="correct" style="display: none;">Correct answer: B) "object"</p>
+                </div>
+                
+                <div class="input-group question" id="q7">
+                    <p>7. Which data structure uses LIFO (Last In, First Out) principle?</p>
+                    <label><input type="radio" name="q7" value="A">A) Queue</label><br>
+                    <label><input type="radio" name="q7" value="B">B) Stack</label><br>
+                    <label><input type="radio" name="q7" value="C">C) Array</label><br>
+                    <label><input type="radio" name="q7" value="D">D) Linked List</label>
+                    <p class="correct" style="display: none;">Correct answer: B) Stack</p>
+                </div>
+                
+                <div class="input-group question" id="q8">
+                    <p>8. What is the result of 5 + "5" in JavaScript?</p>
+                    <label><input type="radio" name="q8" value="A">A) 10</label><br>
+                    <label><input type="radio" name="q8" value="B">B) "55"</label><br>
+                    <label><input type="radio" name="q8" value="C">C) Error</label><br>
+                    <label><input type="radio" name="q8" value="D">D) "5"</label>
+                    <p class="correct" style="display: none;">Correct answer: B) "55"</p>
+                </div>
+                
+                <div class="input-group question" id="q9">
+                    <p>9. Which of the following is not a programming paradigm?</p>
+                    <label><input type="radio" name="q9" value="A">A) Object-Oriented</label><br>
+                    <label><input type="radio" name="q9" value="B">B) Functional</label><br>
+                    <label><input type="radio" name="q9" value="C">C) Procedural</label><br>
+                    <label><input type="radio" name="q9" value="D">D) Linear</label>
+                    <p class="correct" style="display: none;">Correct answer: D) Linear</p>
+                </div>
+                
+                <div class="input-group question" id="q10">
+                    <p>10. In SQL, which command is used to retrieve data from a database?</p>
+                    <label><input type="radio" name="q10" value="A">A) GET</label><br>
+                    <label><input type="radio" name="q10" value="B">B) SELECT</label><br>
+                    <label><input type="radio" name="q10" value="C">C) FETCH</label><br>
+                    <label><input type="radio" name="q10" value="D">D) RETRIEVE</label>
+                    <p class="correct" style="display: none;">Correct answer: B) SELECT</p>
+                </div>
+            <button type="submit" class="btn"> Submit</button>
+        </form>
+        <div id="result">
+            <p id="score"></p>
+            <button class="btn"><a href="home.html" style="color: white;">BACK</a></button>
+        </div>
+    </div>
+
+    <script>
+        // Correct answers for the quiz
+        const correctAnswers = {
+            q1: "A",
+            q2: "D",
+            q3: "A",
+            q4: "C",
+            q5: "B",
+            q6: "B",
+            q7: "B",
+            q8: "B",
+            q9: "D",
+            q10: "B"
+        };
+
+    </script>
+    <script src="quizs.js"></script>
+</body>
+</html>
